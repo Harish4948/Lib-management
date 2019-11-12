@@ -1,0 +1,32 @@
+{% extends "index.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block content %}
+<div class="container1">
+    <div class="form-group">
+    <form method="POST" action="/register">
+        {{ form.hidden_tag() }}
+        <!-- {{ wtf.form_field(form.email)}}
+        
+        {{ wtf.form_field(form.username) }}
+        {{ wtf.form_field(form.password) }}
+        {{ form.submit() }} -->
+        {{ form.csrf_token }}        
+        {{form.email.label}}
+        {{form.email(class_="form-control")}} <br>
+        {{form.username.label}}
+        {{form.username(class_="form-control")}} <br>
+        {{form.password.label}}
+        {{form.password(class_="form-control")}}
+        <!-- <input type="button" value="submit"> -->
+        <br>
+        {{form.submit(class_="btn btn-primary")}}
+        
+
+    </form>
+    {% if form.errors %}
+{{ form.errors }}
+{% endif %}
+</div>
+</div>
+
+{% endblock %}
